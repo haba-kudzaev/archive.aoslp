@@ -104,7 +104,7 @@
             android:theme="@style/Theme"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="nosensor"
-            android:enabled="false">
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
@@ -122,7 +122,6 @@
             android:label="@string/toggle_weight_watcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -159,7 +158,15 @@
             android:name="o1310.rx1310.aoslp.SettingsActivity"
             android:autoRemoveFromRecents="true"
             android:label="@string/settings_button_text"
-            android:process=":settings_process"></activity>
+            android:process=":settings_process">
+			<intent-filter>
+				<action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="com.cyanogenmod.category.LAUNCHER_PREFERENCES"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.PREFERENCE"/>
+            </intent-filter>
+		</activity>
 
         <!-- Debugging tools -->
         <activity
@@ -171,7 +178,6 @@
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -220,5 +226,10 @@
         <meta-data
             android:name="android.nfc.disable_beam_default"
             android:value="true" />
+		
+		<meta-data
+			android:name="android.max_aspect"
+			android:value="2.1" />
+		
     </application>
 </manifest>

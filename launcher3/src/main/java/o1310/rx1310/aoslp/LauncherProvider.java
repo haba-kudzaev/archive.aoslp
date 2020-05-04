@@ -611,7 +611,7 @@ public class LauncherProvider extends ContentProvider {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             if (LOGD) Log.d(TAG, "onUpgrade triggered: " + oldVersion);
             switch (oldVersion) {
-                // The version cannot be lower that 12, as Launcher3 never supported a lower
+                // The version cannot be lower that 12, as AOSLP never supported a lower
                 // version of the DB.
                 case 12: {
                     // With the new shrink-wrapped and re-orderable workspaces, it makes sense

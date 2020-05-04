@@ -56,7 +56,7 @@ import java.util.Set;
 import java.util.WeakHashMap;
 
 public class WallpaperCropActivity extends BaseActivity implements Handler.Callback {
-    private static final String LOGTAG = "Launcher3.CropActivity";
+    private static final String LOGTAG = "AOSLP.CropActivity";
 
     protected static final String WALLPAPER_WIDTH_KEY = WallpaperUtils.WALLPAPER_WIDTH_KEY;
     protected static final String WALLPAPER_HEIGHT_KEY = WallpaperUtils.WALLPAPER_HEIGHT_KEY;

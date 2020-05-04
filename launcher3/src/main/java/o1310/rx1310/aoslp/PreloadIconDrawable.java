@@ -61,7 +61,7 @@ class PreloadIconDrawable extends Drawable {
     public void applyPreloaderTheme(Theme t) {
         TypedArray ta = t.obtainStyledAttributes(R.styleable.PreloadIconDrawable);
 
-        //GOTT CODE: we change from PreloadIconDrawable_background to PreloadIconDrawable_background2, please see: \launcher3\src\main\res\values\attrs.xml >
+        //GOTT CODE: we change from PreloadIconDrawable_background to PreloadIconDrawable_background2, please see: \aoslp\src\main\res\values\attrs.xml >
         mBgDrawable = ta.getDrawable(R.styleable.PreloadIconDrawable_background2);
         mBgDrawable.setFilterBitmap(true);
         mPaint.setStrokeWidth(ta.getDimension(R.styleable.PreloadIconDrawable_indicatorSize, 0));

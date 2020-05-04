@@ -361,7 +361,7 @@ public class Launcher extends Activity
         }
     }
 
-    // TODO: remove this field and call method directly when Launcher3 can depend on M APIs
+    // TODO: remove this field and call method directly when AOSLP can depend on M APIs
     private static Method sClipRevealMethod = null;
     static {
         Class<?> activityOptionsClass = ActivityOptions.class;
@@ -2883,7 +2883,7 @@ public class Launcher extends Activity
             if (useLaunchAnimation) {
                 ActivityOptions opts = null;
                 if (sClipRevealMethod != null) {
-                    // TODO: call method directly when Launcher3 can depend on M APIs
+                    // TODO: call method directly when AOSLP can depend on M APIs
                     int left = 0, top = 0;
                     int width = v.getMeasuredWidth(), height = v.getMeasuredHeight();
                     if (v instanceof TextView) {
@@ -4603,7 +4603,7 @@ public class Launcher extends Activity
      * Prints out out state for debugging.
      */
     public void dumpState() {
-        Log.d(TAG, "BEGIN launcher3 dump state for launcher " + this);
+        Log.d(TAG, "BEGIN AOSLP dump state for launcher " + this);
         Log.d(TAG, "mSavedState=" + mSavedState);
         Log.d(TAG, "mWorkspaceLoading=" + mWorkspaceLoading);
         Log.d(TAG, "mRestoring=" + mRestoring);
@@ -4613,7 +4613,7 @@ public class Launcher extends Activity
         mModel.dumpState();
         // TODO(hyunyoungs): add mWidgetsView.dumpState(); or mWidgetsModel.dumpState();
 
-        Log.d(TAG, "END launcher3 dump state");
+        Log.d(TAG, "END AOSLP dump state");
     }
 
     @Override
