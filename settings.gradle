@@ -1,1 +1,1 @@
-include ':launcher3', ':wallpaperpicker'
+include ':aoslp', ':wallpaperpicker'
