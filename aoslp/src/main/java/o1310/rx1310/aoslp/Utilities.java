@@ -74,13 +74,13 @@ public final class Utilities {
     private static final Rect sOldBounds = new Rect();
     private static final Canvas sCanvas = new Canvas();
 
-    private static final Pattern sTrimPattern =
-            Pattern.compile("^[\\s|\\p{javaSpaceChar}]*(.*)[\\s|\\p{javaSpaceChar}]*$");
+    private static final Pattern sTrimPattern = Pattern.compile("^[\\s|\\p{javaSpaceChar}]*(.*)[\\s|\\p{javaSpaceChar}]*$");
 
     static {
         sCanvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.DITHER_FLAG,
                 Paint.FILTER_BITMAP_FLAG));
     }
+	
     static int sColors[] = { 0xffff0000, 0xff00ff00, 0xff0000ff };
     static int sColorIndex = 0;
 
@@ -93,7 +93,8 @@ public final class Utilities {
     private static boolean sForceEnableRotation = isPropertyEnabled(FORCE_ENABLE_ROTATION_PROPERTY);
 
     public static final String ALLOW_ROTATION_PREFERENCE_KEY = "pref_allowRotation";
-
+	public static final String AOSLP_VERSION_PREFERENCE_KEY = "pref_appVersion";
+	
     public static boolean isPropertyEnabled(String propertyName) {
         return Log.isLoggable(propertyName, Log.VERBOSE);
     }
@@ -283,10 +284,23 @@ public final class Utilities {
             scale *= v0.getScaleX();
         }
 
-        coord[0] = (int) Math.round(pt[0]);
-        coord[1] = (int) Math.round(pt[1]);
+        coord[0] = Math.round(pt[0]);
+        coord[1] = Math.round(pt[1]);
         return scale;
     }
+	
+	public static String getAppVersion(Context context) {
+		try {
+			PackageManager pm = context.getPackageManager();
+			PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+			String vn = pi.versionName;
+			int vc = pi.versionCode;
+			return vn + " (" + vc + ")";
+		} catch (Exception exc) {
+			exc.printStackTrace();
+			return TAG + ": getAppVersion: error!";
+		}
+	}
 
     /**
      * Inverse of {@link #getDescendantCoordRelativeToSelf(View, int[])}.
@@ -323,8 +337,8 @@ public final class Utilities {
             }
         }
 
-        coord[0] = (int) Math.round(pt[0]);
-        coord[1] = (int) Math.round(pt[1]);
+        coord[0] = Math.round(pt[0]);
+        coord[1] = Math.round(pt[1]);
         return scale;
     }
 
@@ -689,7 +703,7 @@ public final class Utilities {
                 Set<String> keys = extras.keySet();
                 return keys.size() == 1 && keys.contains(ItemInfo.EXTRA_PROFILE);
             }
-        };
+        }
         return false;
     }
 

@@ -34,6 +34,8 @@
 
     <!-- Application name -->
     <string name="application_name">AOSLP</string>
+	<!-- Application version -->
+    <string name="application_version">App version</string>
     <!-- Default folder name -->
     <string name="folder_name"></string>
     <!-- Work folder name -->
